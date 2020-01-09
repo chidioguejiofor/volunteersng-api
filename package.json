@@ -5,9 +5,12 @@
   "main": "index.js",
   "scripts": {
     "start": "tsc && node dist/index.js",
-    "test": "mocha -r ts-node/register src/tests/**/*.test.ts",
+    "pretest": "NODE_ENV=test sequelize db:migrate && NODE_ENV=test sequelize db:seed:all",
+    "posttest": "NODE_ENV=test sequelize db:migrate:undo:all",
+    "test": "NODE_ENV=test mocha -r ts-node/register src/tests/**/*.test.ts",
     "dev": "nodemon --exec ts-node src/server/index.ts",
     "lint": "tsc --noEmit && eslint '*/**/*.{js,ts}' --quiet --fix",
+    "migrate": "sequelize  db:migrate",
     "build": "tsc"
   },
   "repository": {
