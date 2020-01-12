@@ -1,4 +1,4 @@
-# Volunteers NG
+# Volunteers NG [![CircleCI](https://circleci.com/gh/chidioguejiofor/volunteersng-api/tree/ch-runo-circleci_config.svg?style=svg)](https://circleci.com/gh/chidioguejiofor/volunteersng-api/tree/ch-runo-circleci_config)
 
 An app that helps volunteers connect with non-profits
 
