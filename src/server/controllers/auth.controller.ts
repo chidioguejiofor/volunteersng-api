@@ -10,6 +10,16 @@ const { getOrganization, createOrganization } = OrganizationRepository;
 const { createRole } = RoleRepository;
 const { createMembership } = MembershipRepository;
 export default class AuthController {
+
+  public static async registerUser(req, resp) {
+      try {
+      const {name, email, username, password} = req.body;
+      //check if user exists
+      
+      } catch (e) {
+
+      }
+  }
   public static async registerOrganization(req, resp) {
     try {
       const { name, email, password, username, ...organiztionData } = req.body;
