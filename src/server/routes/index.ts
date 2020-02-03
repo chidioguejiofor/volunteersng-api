@@ -12,3 +12,4 @@ router.use('/auth', authRouter)
 router.get('/test-sample', SampleController.testSampleRoute);
 
 export default router;
+
