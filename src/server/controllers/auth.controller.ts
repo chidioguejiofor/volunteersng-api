@@ -1,3 +1,4 @@
+import HashHelper from '../helpers/hash.helper';
 import TokenHelper from '../helpers/token.helper';
 import UserRepository from '../repositories/user.repositories';
 import OrganizationRepository from '../repositories/organization.repositories';
@@ -9,6 +10,9 @@ const { getUserById } = UserRepository;
 const { getOrganization, createOrganization } = OrganizationRepository;
 const { getRole } = RoleRepository;
 const { createMembership } = MembershipRepository;
+
+const { getUser, createUser } = UserRepository;
+
 export default class AuthController {
   public static async registerOrganization(req, resp) {
     try {
@@ -34,6 +38,7 @@ export default class AuthController {
         roleId,
       });
 
+      
       const payload = {
         user: { id: user.id, username: user.username, status: user.verified },
         organization: { id: orgId },
@@ -51,4 +56,37 @@ export default class AuthController {
       });
     }
   }
+
+
+	public static async registerUser(req, resp) {
+		try {
+      const { name, email, username, password } = req.body;
+			//check if user exists
+			const user = await getUser(email);
+			if (user) {
+				return resp.status(400).send({ success: false, message: 'Email already exists' });
+			}
+			const userData = { name, email, username, password: HashHelper.hashPassword(password) };
+      const newUser = await createUser(userData);
+
+      	// create token and return response
+			const payload = {
+				user: { id: newUser.id, username: newUser.username, status: newUser.verified },
+			};
+			const token: string = TokenHelper.generateToken(payload);
+			return resp.status(201).send({
+        success: true,
+        message:'Registration Successful!!',
+				token
+			});
+      
+		} catch (error) {
+			console.log(error);
+			return resp.status(500).send({
+				message: 'Server error',
+				error
+			});
+		}
+	}
+
 }

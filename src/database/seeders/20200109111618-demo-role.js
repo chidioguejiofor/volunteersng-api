@@ -7,7 +7,7 @@ module.exports = {
       [
         {
           id: 'fce4fff4-4cb5-4281-b244-3b51afb25445',
-          name: 'super admin',
+          name: 'Super Admin',
           description: 'The boss himself',
         },
         {

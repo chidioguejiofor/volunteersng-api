@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "tsc && node dist/index.js",
-    "pretest": "npm run posttest && cross-env NODE_ENV=test sequelize db:migrate && cross-env NODE_ENV=test sequelize db:seed:all",
+    "pretest": "cross-env NODE_ENV=test sequelize db:migrate:undo:all && cross-env NODE_ENV=test sequelize db:migrate && cross-env NODE_ENV=test sequelize db:seed:all",
     "posttest": "cross-env NODE_ENV=test sequelize db:migrate:undo:all",
-    "test": "cross-env NODE_ENV=test nyc mocha -r ts-node/register src/tests/**/*.test.ts && nyc report --reporter=html && nyc report --reporter=lcov",
+    "test": "cross-env NODE_ENV=test nyc mocha -r ts-node/register src/tests/**/*.test.ts --exit",
     "dev": "nodemon --exec ts-node src/server/index.ts",
     "lint": "tsc --noEmit && eslint '*/**/*.{js,ts}' --quiet --fix",
     "migrate": "sequelize db:migrate",

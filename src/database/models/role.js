@@ -3,7 +3,7 @@ module.exports = (sequelize, DataTypes) => {
   const Role = sequelize.define(
     'Role',
     {
-      name: DataTypes.ENUM('Owner', 'Manager', 'Super Admin', 'Admin', 'Volunteer'),
+      name: DataTypes.ENUM('owner', 'manager', 'super admin', 'admin', 'volunteer'),
       description: DataTypes.TEXT,
     },
     {},
