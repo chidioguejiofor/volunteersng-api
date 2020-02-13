@@ -10,7 +10,8 @@ module.exports = {
       },
       name: {
         allowNull: false,
-        type: Sequelize.ENUM('Owner', 'Manager', 'Super Admin', 'Admin', 'Volunteer'),
+        type: Sequelize.ENUM('owner', 'manager', 'super admin', 'admin', 'volunteer'),
+        unique: true,
       },
       description: {
         type: Sequelize.TEXT,

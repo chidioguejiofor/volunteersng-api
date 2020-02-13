@@ -1,6 +1,7 @@
 import express, { Request, Response } from 'express';
 import * as Sentry from '@sentry/node';
 import { RewriteFrames } from '@sentry/integrations';
+import logger from 'morgan';
 import router from './routes';
 import root from '../../root';
 
@@ -15,6 +16,9 @@ Sentry.init({
   ],
 });
 
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 app.use(Sentry.Handlers.requestHandler());
 
 app.use('/api', router);

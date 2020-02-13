@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "tsc && node dist/index.js",
-    "pretest": "cross-env NODE_ENV=test && cross-env NODE_ENV=test sequelize db:migrate && cross-env NODE_ENV=test sequelize db:seed:all",
+    "pretest": "npm run posttest && cross-env NODE_ENV=test sequelize db:migrate && cross-env NODE_ENV=test sequelize db:seed:all",
     "posttest": "cross-env NODE_ENV=test sequelize db:migrate:undo:all",
-    "test": "cross-env NODE_ENV=test && nyc mocha -r ts-node/register src/tests/**/*.test.ts && nyc report --reporter=html && nyc report --reporter=lcov",
+    "test": "cross-env NODE_ENV=test nyc mocha -r ts-node/register src/tests/**/*.test.ts && nyc report --reporter=html && nyc report --reporter=lcov",
     "dev": "nodemon --exec ts-node src/server/index.ts",
     "lint": "tsc --noEmit && eslint '*/**/*.{js,ts}' --quiet --fix",
     "migrate": "sequelize db:migrate",
@@ -47,8 +47,13 @@
   "dependencies": {
     "@sentry/integrations": "^5.11.0",
     "@sentry/node": "^5.11.0",
+    "bcryptjs": "^2.4.3",
+    "date-fns": "^2.9.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "express-validator": "^6.3.1",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.9.1",
     "pg": "^7.17.0",
     "sequelize": "^5.21.3"
   }

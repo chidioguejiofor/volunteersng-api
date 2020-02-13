@@ -1,11 +1,11 @@
 import { Router } from 'express';
-import SampleController from '../controllers/sample';
+import authRouter from './auth.routes';
 const router = Router();
 
 router.get('', (req, resp) => {
-    return resp.status(200).send('From router');
+  return resp.status(200).send('From router');
 });
 
-router.get('/test-sample', SampleController.testSampleRoute);
+router.use('/auth', authRouter);
 
 export default router;
