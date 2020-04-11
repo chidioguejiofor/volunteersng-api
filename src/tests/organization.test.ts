@@ -8,7 +8,8 @@ const { validOrgToken, invalidOrgToken } = orgMockData;
 chai.use(chaiHttp);
 
 describe('Organization Register Tests', () => {
-  it('should return a 200 status on successful registration', async () => {
+  
+  it('should return a 201 status on successful registration', async () => {
     const { body, status } = await chai
       .request(server)
       .post('/api/auth/organization/register/')
@@ -16,6 +17,7 @@ describe('Organization Register Tests', () => {
       .send(orgMockData.orgData);
     expect(status).to.eql(201);
     expect(body).to.haveOwnProperty('token');
+    
   });
 
   it('should return an error when token is invalid', async () => {

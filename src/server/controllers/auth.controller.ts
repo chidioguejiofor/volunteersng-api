@@ -47,12 +47,12 @@ export default class AuthController {
       const token: string = TokenHelper.generateToken(payload);
       return resp.status(201).send({
         success: true,
-        token,
+        token
       });
     } catch (error) {
       return resp.status(500).send({
         success: false,
-        message: 'Server error',
+        message: 'Server error'
       });
     }
   }
@@ -64,7 +64,7 @@ export default class AuthController {
 			//check if user exists
 			const user = await getUser(email);
 			if (user) {
-				return resp.status(400).send({ success: false, message: 'Email already exists' });
+				return resp.status(400).send({ success: false, message: authError.USER_EXISTS });
 			}
 			const userData = { name, email, username, password: HashHelper.hashPassword(password) };
       const newUser = await createUser(userData);
@@ -76,7 +76,7 @@ export default class AuthController {
 			const token: string = TokenHelper.generateToken(payload);
 			return resp.status(201).send({
         success: true,
-        message:'Registration Successful!!',
+        message:authError.USER_REGISTRATION_MESSAGE,
 				token
 			});
       

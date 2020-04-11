@@ -18,3 +18,9 @@ export const user2: User = {
   username: 'tega',
   password: 'password'
 };
+
+
+export default {
+  user1,
+  user2
+};
