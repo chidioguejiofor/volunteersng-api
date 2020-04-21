@@ -2,14 +2,30 @@
 
 An app that helps volunteers connect with non-profits
 
+## The following is Required on your machine to run this Project
+
+- [Node.js](https://nodejs.org/en/download/current/)
+- [Postman](https://www.getpostman.com/apps) Native or Postman [Chrome extension]
+- [Postgres](https://www.postgresql.org/download/) Database or create an Online [Elephant sql](https://www.elephantsql.com/) database
+- [Git](https://git-scm.com/downloads)
+
 ### DB setup
 
 - Install Postgres
-- Create db related config values in `.env` file following `.env-sample`
+- Create db related config values in 
+`.env` 
+file following
+`.env-sample`
 
 
 ### Commit message Setup
 
 To setup commit run `git config --local commit.template .gitmessage`
 
+### Run in Development mode
 
+- Run
+```bash
+yarn dev
+```
+This should start the app in development mode on `http://localhost:3000`
