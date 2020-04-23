@@ -1,6 +1,7 @@
 # Volunteers NG [![CircleCI](https://circleci.com/gh/chidioguejiofor/volunteersng-api/tree/staging.svg?style=svg)](https://circleci.com/gh/chidioguejiofor/volunteersng-api/tree/staging) [![Maintainability](https://api.codeclimate.com/v1/badges/72e8c4caa0845c1f72b2/maintainability)](https://codeclimate.com/github/chidioguejiofor/volunteersng-api/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/72e8c4caa0845c1f72b2/test_coverage)](https://codeclimate.com/github/chidioguejiofor/volunteersng-api/test_coverage)
 
-An app that helps volunteers connect with non-profits
+### Description
+“Volunteers NG” is app that helps volunteers connect with non-profits works over the internet to enhance support cause that is important, however it is a nonprofit adapted virtual world which has prompted Voluntary works to be done away from physical site of an organization. It is simpler than ever to setup.
 
 ## The following is Required on your machine to run this Project
 
