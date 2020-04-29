@@ -37,9 +37,9 @@ module.exports = {
   migrationsRun: true,
   logging: true,
   logger: 'file',
-  entities: ['dist/**/*.entity.js'],
+  entities: [__dirname + '/dist/**/*.entity{.ts,.js}'],
   synchronize: false,
-  migrations: ["dist/migrations/**/*.js"],
+  migrations: [__dirname + '/dist/migrations/**/*{.ts,.js}'],
   cli: {
     migrationsDir: 'src/migrations',
   },
