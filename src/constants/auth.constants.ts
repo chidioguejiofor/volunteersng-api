@@ -21,6 +21,8 @@ export const VALID_NAME_ERROR = 'name should be between 2 and 32 characters'
 export const VALID_USERNAME_ERROR = 'firstname should be between 4 and 32 characters'
 export const USER_EXISTS = 'A user with this email already exists'
 
+/**User Login messages */
+export const INVALID_LOGIN_CREDENTIALS = 'Incorrect username or password'
 /**User registration messages */
 export const USER_REGISTRATION_MESSAGE = 'Registration successful!'
 
